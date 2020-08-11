@@ -42,14 +42,15 @@ has_many :customers
 
 ## sends テーブル
 
-| Column       | Type        | Options                       |
-| ------------ | ----------- | ----------------------------- |
-| post_number  | string      | null: false                   |
-| post_place   | integer     | null: false                   |
-| city         | string      | null: false                   |
-| place_number | integer     | null: false                   |
-| building     | string      |                               |
-| tell         | string      | null: false                   |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| post_number  | string     | null: false                    |
+| post_place   | integer    | null: false                    |
+| city         | string     | null: false                    |
+| place_number | integer    | null: false                    |
+| building     | string     |                                |
+| tell         | string     | null: false                    |
+| customer     | references | null: false, foreign_key: true |
 
 ### Association
 
