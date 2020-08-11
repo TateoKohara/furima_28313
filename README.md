@@ -13,11 +13,12 @@
 | first_name    | string | null: false |
 | family_name_j | string | null: false |
 | first_name_j  | string | null: false |
+| birth         | string | null: false |
 
 ### Association
 
-- has_many :items
-- has_one :customers
+- has_many :items, through: :customers
+- has_one :sends
 
 ## items  テーブル
 
@@ -36,8 +37,9 @@
 
 ### Association
 
-- has_one :sends 
-- belongs_to :user
+- has_many :customers
+- had_one :sends
+- belongs_to :users
 
 ## sends テーブル
 
@@ -49,10 +51,22 @@
 | place_number | integer    | null: false                   |
 | building     | string     |                               |
 | tell         | string     | null: false                   |
-| user         | references | null: false, foreign_key: true|
-| item         | references | null: false, foreign_key: true|
 
 ### Association
 
+- belongs_to :users
+- belongs_to :items
+- belongs_to :customers
+
+## customers テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user         | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
+
+### Association
+
+- has_one :sends
 - belongs_to :user
-- belongs_to :sends
+- belongs_to :item
