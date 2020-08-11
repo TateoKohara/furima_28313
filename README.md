@@ -17,6 +17,7 @@
 
 ### Association
 
+has_many :items
 has_many :customers
 
 ## items  テーブル
