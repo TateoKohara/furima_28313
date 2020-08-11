@@ -17,8 +17,7 @@
 
 ### Association
 
-- has_many :items, through: :customers
-- has_one :send
+has_many :customers
 
 ## items  テーブル
 
@@ -38,19 +37,18 @@
 ### Association
 
 - has_one :customer
-- had_one :send
 - belongs_to :user
 
 ## sends テーブル
 
-| Column       | Type       | Options                       |
-| ------------ | ---------- | ----------------------------- |
-| post_number  | string     | null: false                   |
-| post_place   | string     | null: false                   |
-| city         | string     | null: false                   |
-| place_number | integer    | null: false                   |
-| building     | string     |                               |
-| tell         | string     | null: false                   |
+| Column       | Type        | Options                       |
+| ------------ | ----------- | ----------------------------- |
+| post_number  | integer     | null: false                   |
+| post_place   | integer     | null: false                   |
+| city         | string      | null: false                   |
+| place_number | integer     | null: false                   |
+| building     | string      |                               |
+| tell         | string      | null: false                   |
 
 ### Association
 
