@@ -13,12 +13,12 @@
 | first_name    | string | null: false |
 | family_name_j | string | null: false |
 | first_name_j  | string | null: false |
-| birth         | string | null: false |
+| birth         | date   | null: false |
 
 ### Association
 
 - has_many :items, through: :customers
-- has_one :sends
+- has_one :send
 
 ## items  テーブル
 
@@ -28,18 +28,18 @@
 | image      | string     | null: false                    |
 | price      | integer    | null: false                    |
 | comment    | text       | null: false                    |
-| category   | string     | null: false                    |
-| status     | string     | null: false                    |
-| charge     | string     | null: false                    |
-| send_place | string     | null: false                    |
-| send_days  | string     | null: false                    |
+| category   | integer    | null: false                    |
+| status     | integer    | null: false                    |
+| charge     | integer    | null: false                    |
+| send_place | integer    | null: false                    |
+| send_days  | integer    | null: false                    |
 | user       | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :customers
-- had_one :sends
-- belongs_to :users
+- has_one :customer
+- had_one :send
+- belongs_to :user
 
 ## sends テーブル
 
@@ -54,9 +54,9 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- belongs_to :customers
+- belongs_to :user
+- belongs_to :item
+- belongs_to :customer
 
 ## customers テーブル
 
@@ -67,6 +67,6 @@
 
 ### Association
 
-- has_one :sends
+- has_one :send
 - belongs_to :user
 - belongs_to :item
