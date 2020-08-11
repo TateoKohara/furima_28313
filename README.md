@@ -44,7 +44,7 @@ has_many :customers
 
 | Column       | Type        | Options                       |
 | ------------ | ----------- | ----------------------------- |
-| post_number  | integer     | null: false                   |
+| post_number  | string      | null: false                   |
 | post_place   | integer     | null: false                   |
 | city         | string      | null: false                   |
 | place_number | integer     | null: false                   |
