@@ -79,11 +79,24 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name j can't be blank")
     end
 
+    it "family_name_jが全角カナでないと登録できないこと" do
+      @user.family_name_j = "あいうえお"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name j 全角カナを使用してください")
+    end  
+
+    it "first_name_jが全角カナでないと登録できないこと" do
+      @user.first_name_j = "あいうえお"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name j 全角カナを使用してください")
+    end  
+
     it "birthが空だと登録できないこと" do
       @user.birth = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("Birth can't be blank")
+      expect(@user.errors.full_messages).to include("Birth can't be blank")  
     end
+
   end  
 end
 
