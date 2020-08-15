@@ -16,6 +16,9 @@ class ItemsController < ApplicationController
     end    
   end
 
+  def checked
+  end
+
   private
 
   def item_params

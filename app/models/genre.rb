@@ -14,11 +14,3 @@ class Genre < ActiveHash::Base
     { id: 12, name: 'その他'}
   ]
 end
-
- 
-
-  
-
-
-  
-  
