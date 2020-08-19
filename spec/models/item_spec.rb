@@ -17,7 +17,6 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Name can't be blank")
     end
 
-    
     it "商品の画像が空だと出品できない" do
       @item.image = nil
       @item.valid?
@@ -32,6 +31,18 @@ RSpec.describe Item, type: :model do
 
     it "カテゴリーが選択されていないと出品できない" do
       @item.category_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category can't be blank")
+    end
+
+    it "{ id: 1, name: '---'}が存在している箇所で１が選択されている場合は出品できない" do
+      @item.category_id = {id: 1, name: '---'}
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category can't be blank")
+    end
+
+    it "{ id: 2, name: 'カテゴリー'}が存在している箇所で2が選択されている場合は出品できない" do
+      @item.category_id = {id: 2, name: 'カテゴリー'}
       @item.valid?
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
@@ -66,7 +77,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
 
-    it "価格が9,999,999以下でないと出品できない" do
+    it "価格が9,999,999円以下でないと出品できない" do
       @item.price = "10000000"
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
