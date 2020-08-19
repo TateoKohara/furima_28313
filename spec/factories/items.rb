@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :item do
     name { "かわいいネコ" }
-    # image { Rack::Test::UploadedFile.new(File.join(Rails.root,'public/images/test_image.png')) }
     price { 4000 }
     comment { "かわいい猫ちゃんです" }
     category_id { 1 }
