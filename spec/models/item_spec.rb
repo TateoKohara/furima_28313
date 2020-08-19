@@ -41,12 +41,6 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
 
-    it "{ id: 2, name: 'カテゴリー'}が存在している箇所で2が選択されている場合は出品できない" do
-      @item.category_id = {id: 2, name: 'カテゴリー'}
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank")
-    end
-
     it "商品の状態が選択されていないと出品できない" do
       @item.status_id = nil
       @item.valid?
