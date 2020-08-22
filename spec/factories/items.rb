@@ -7,6 +7,6 @@ FactoryBot.define do
     status_id { 2 }
     charge_id { 1 }
     prefecture_id { 1 }
-    send_id { 1 }
+    area_id { 1 }
   end
 end
