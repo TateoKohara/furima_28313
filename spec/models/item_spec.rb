@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
       @item.image = fixture_file_upload('public/images/test_image.png')
     end
 
-    it "name, image, price, comment, category, status, charge, prefecture, sendが入力されていれば出品できる" do
+    it "name, image, price, comment, category, status, charge, prefecture, areaが入力されていれば出品できる" do
       expect(@item).to be_valid
     end
     
@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
     end
     
     it "発送までの日数が選択されていないと出品できない" do
-      @item.send_id = nil
+      @item.area_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Send can't be blank")
     end  
