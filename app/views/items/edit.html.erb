@@ -10,9 +10,9 @@ app/assets/stylesheets/items/new.css %>
     <%= form_with model: @item, url: item_path, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <% if @item.present? %>
+    
     <%= render 'shared/error_messages', model: f.object %>
-    <% end %>  
+    
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
