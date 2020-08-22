@@ -9,9 +9,11 @@
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outの表示をしましょう。 %>
+      <% if @item.nil? %>
       <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
+      <% end %>
       <%# //商品が売れている場合は、sold outの表示をしましょう。 %>
     </div>
     <div class="item-price-box">
@@ -24,13 +26,17 @@
     </div>
 
     <%# ログインしていて、なおかつ、ログインしているユーザと出品しているユーザが同一人物でないとき表示しましょう。 %>
-
+    <% if user_signed_in? && current_user.id == @item.user_id %>
     <%= link_to '商品の編集', "#", method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
+    <% end %>
 
     <%# 商品が売れていない場合はこちらを表示しましょう %>
+    <% if user_signed_in? && current_user.id != @item.user_id %> 
+    <%# <% if @item.presence %> 
     <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
+    <% end %>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
 
     <%# //ログインしていて、なおかつ、ログインしているユーザと出品しているユーザが同一人物でないとき表示しましょう。 %>
@@ -94,12 +100,18 @@
     </form>
   </div>
   <div class="links">
-    <a href="#" class="change-item-btn">
+    <% if @item.present? %> 
+    <%= link_to "＜ 前の商品", item_path(@item.presence), class:"change-item-btn" %>
+    <% end %> 
+    <%# <a href="#" class="change-item-btn">
       ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
+    </a> %>
+    <% if @item.present? %>
+    <%= link_to "後の商品 ＞", item_path(@item.presence), class:"change-item-btn" %>
+    <% end %>
+    <%# <a href="#" class="change-item-btn">
+      後の商品 ＞
+    </a> %>
   </div>
   <a href="#" class='another-item'><%= "商品のカテゴリー名" %>をもっと見る</a>
 </div>
