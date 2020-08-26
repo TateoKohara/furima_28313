@@ -8,7 +8,7 @@ class UserTransaction
     validates :prefecture_id
     validates :city, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "全角で入力してください"}
     validates :house_number, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "全角で入力してください"}
-    validates :phone, format: {with: /\A\d{11}\z/, message: "ハイフンなしの11桁で入力したください"}
+    validates :phone, format: {with: /\A\d{11}\z/, message: "ハイフンなしの11桁で入力してください"}
   end
 
   def save

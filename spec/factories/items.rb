@@ -8,5 +8,6 @@ FactoryBot.define do
     charge_id { 1 }
     prefecture_id { 1 }
     area_id { 1 }
+    association :user
   end
 end
