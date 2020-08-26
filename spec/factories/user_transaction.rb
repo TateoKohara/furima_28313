@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :user_transaction do
+    token { "42424242424242" }
     postal_code { "123-4567" }
     prefecture_id { 4 }
     city { "横浜市" }

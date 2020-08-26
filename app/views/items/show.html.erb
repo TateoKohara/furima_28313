@@ -102,15 +102,11 @@
     <% if @item.present? %> 
     <%= link_to "＜ 前の商品", item_path(@item.presence), class:"change-item-btn" %>
     <% end %> 
-    <%# <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a> %>
+    
     <% if @item.present? %>
     <%= link_to "後の商品 ＞", item_path(@item.presence), class:"change-item-btn" %>
     <% end %>
-    <%# <a href="#" class="change-item-btn">
-      後の商品 ＞
-    </a> %>
+    
   </div>
   <a href="#" class='another-item'><%= "商品のカテゴリー名" %>をもっと見る</a>
 </div>

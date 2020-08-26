@@ -6,8 +6,14 @@ RSpec.describe UserTransaction, type: :model do
       @order = FactoryBot.build(:user_transaction)
     end
     
-    it "postal_code, prefecture, city, house_number, phoneが存在すれば購入できること" do
+    it "token, postal_code, prefecture, city, house_number, phoneが存在すれば購入できること" do
       expect(@order).to be_valid
+    end
+
+    it "tokenが空だと購入できない" do
+      @order.token = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Token can't be blank")
     end
 
     it "郵便番号が空だと購入できないこと" do
